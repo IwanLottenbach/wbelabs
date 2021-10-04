@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="https://github.zhaw.ch/pages/schlatim/wbelabs/log.js"></script>
+    <title>Praktikum 2, Aufgabe 4</title>
+</head>
+<body>
+
+<h1>Praktikum 2, Aufgabe 4</h1>
+<h3>Funktionen</h3>
+
+<pre><code class="language-javascript">
+
+// Aufgabe 4a
+const fibo = function(n){
+    
+    if (n <= 1){
+        return n; 
+    }
+
+    return fibo(n-1) + fibo(n-2);
+  }
+
+// Aufgabe 4a fakultativ
+const fiboIterative = function(n){
+    
+    if (n <= 1){
+        return n; 
+    }
+
+    let n1 = 1
+    let n2 = 0
+    let result = 0
+    
+    for(let i = 2; i <(n+1);i++){
+
+        result = n1 + n2
+        n2 = n1
+        n1 = result
+
+    }
+  
+    return result;
+}
+
+
+// Aufgabe 4b
+const fiboGoldenerSchnitt = function(n){
+    let G = (1+Math.sqrt(5))/2
+
+    if (n <= 1){
+        return n; 
+    }
+
+    return (G**n)/Math.sqrt(5)
+  
+}
+
+</code></pre>   
+
+</body>
+
+<script>   
+  
+
+ // Aufgabe 4a
+const fibo = function(n){
+    
+    if (n <= 1){
+        return n; 
+    }
+
+    return fibo(n-1) + fibo(n-2);
+  }
+
+// Aufgabe 4a fakultativ
+const fiboIterative = function(n){
+    
+    if (n <= 1){
+        return n; 
+    }
+
+    let n1 = 1
+    let n2 = 0
+    let result = 0
+    
+    for(let i = 2; i <(n+1);i++){
+
+        result = n1 + n2
+        n2 = n1
+        n1 = result
+
+    }
+  
+    return result;
+}
+
+
+// Aufgabe 4b
+const fiboGoldenerSchnitt = function(n){
+    let G = (1+Math.sqrt(5))/2
+
+    if (n <= 1){
+        return n; 
+    }
+
+    return (G**n)/Math.sqrt(5)
+  
+}
+
+log("Ausgabe Fibonacci-Folgen mit verschiedener Implementierung", "h3")
+for(let n = 0; n<31; n++){
+    log('Recursive, n = ' + n +': ' + fibo(n))
+    log('Iterative, n = ' + n +': ' + fiboIterative(n))
+    log('GoldenerSchnitt, n = ' + n +': ' + fiboGoldenerSchnitt(n))
+    log('')
+}
+
+
+// Aufgabe 4c
+let max = 30
+
+console.time("fiboRekursiv") 
+var startTime = performance.now()
+for(let n = 0; n < (max+1); n++){
+    fibo(n);
+}
+console.timeEnd("fiboRekursiv")
+var endTime = performance.now()
+log(`fiboRekursiv: ${endTime - startTime} milliseconds`)
+
+
+console.time("fiboIterativ")
+var startTime = performance.now()
+for(let n = 0; n < (max+1); n++){
+    fiboIterative(n);
+}
+console.timeEnd("fiboIterativ")
+var endTime = performance.now()
+log(`fiboIterativ: ${endTime - startTime} milliseconds`)
+
+console.time("fiboGoldenerSchnitt")
+var startTime = performance.now()
+for(let n = 0; n < (max+1); n++){
+    fiboGoldenerSchnitt(n);
+}
+console.timeEnd("fiboGoldenerSchnitt")
+var endTime = performance.now()
+log(`fiboGoldenerSchnitt: ${endTime - startTime} milliseconds`)    
+    
+</script>
+<script>hljs.highlightAll()</script>
+</html>
