@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script src="https://github.zhaw.ch/pages/schlatim/wbelabs/log.js"></script>
+    <title>Praktikum 2, Aufgabe 3</title>
+</head>
+<body>
+
+    
+<h1>Praktikum 2, Aufgabe 3</h1>
+<h3>Funktionen</h3>
+    
+<pre><code class="language-javascript">
+
+const isPrime = function(number){
+    if(number == 1){
+    return false;
+    }
+    for(let i=2; i < number; i++){
+        if(number % i == 0){
+        return false;
+        }
+    }
+    return true;
+}
+
+</code></pre>   
+
+</body>
+
+<script>     
+    
+    const isPrime = function(number){
+    
+        if(number == 1){
+            return false;
+        }
+
+    for(let i=2; i<number; i++){
+       
+        if(number % i == 0){
+            return false;
+        }
+    }
+        return true;
+    }
+    
+    log("Ausgabe", "h3")
+    log('1 is a prime number: ' + isPrime(1))
+    log('2 is a prime number: ' + isPrime(2))
+    log('3 is a prime number: ' + isPrime(3))
+    log('4 is a prime number: ' + isPrime(4))
+    log('5 is a prime number: ' + isPrime(5))
+    log('6 is a prime number: ' + isPrime(6))
+    log('7 is a prime number: ' + isPrime(7))
+    log('8 is a prime number: ' + isPrime(8))
+    log('9 is a prime number: ' + isPrime(9))
+    log('10 is a prime number: ' + isPrime(10))
+    
+    
+</script>
+<script>hljs.highlightAll()</script>
+</html>
